@@ -1,6 +1,6 @@
 # RaceDay
 
-RaceDay is a system for planning and running race-day events — road races, fun runs, and marathons. Organisers create events and the race categories within them (e.g. 5km, 10km, Half Marathon); Participants browse published events, enrol in a category, and later view their results. This repository contains **Part 1: System Planning and Database** — the ERD, the API endpoint plan, and the SQL schema, produced before any application code was written.
+RaceDay is a system for planning and running race-day events — road races, fun runs, and marathons. Organisers create events and the race categories within them mean while participants browse through published events, enrol in a category and later view their results. This repository contains the ERD, the API endpoint plan and the SQL schema.
 
 ## Roles
 
