@@ -1,36 +1,59 @@
-# This is a basic workflow to help you get started with Actions
+name: Validate Structure
 
-name: CI
-
-# Controls when the workflow will run
+# Runs on every push and pull request so the /docs folder is checked
+# continuously throughout Part 1, not just at submission time.
 on:
-  # Triggers the workflow on push or pull request events but only for the "main" branch
   push:
-    branches: [ "main" ]
+    branches: [ "**" ]
   pull_request:
-    branches: [ "main" ]
+    branches: [ "**" ]
 
-  # Allows you to run this workflow manually from the Actions tab
-  workflow_dispatch:
-
-# A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  # This workflow contains a single job called "build"
-  build:
-    # The type of runner that the job will run on
+  validate-docs:
     runs-on: ubuntu-latest
-
-    # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - uses: actions/checkout@v4
+      - name: Checkout repository
+        uses: actions/checkout@v4
 
-      # Runs a single command using the runners shell
-      - name: Run a one-line script
-        run: echo Hello, world!
-
-      # Runs a set of commands using the runners shell
-      - name: Run a multi-line script
+      - name: Check /docs folder exists
         run: |
-          echo Add other actions to build,
-          echo test, and deploy your project.
+          if [ ! -d "docs" ]; then
+            echo "::error::Missing /docs folder at repository root."
+            exit 1
+          fi
+          echo "/docs folder found."
+
+      - name: Check ERD image exists (PNG or PDF)
+        run: |
+          if ! ls docs/*.png docs/*.pdf 2>/dev/null | grep -qiE "erd"; then
+            echo "::error::No ERD file found in /docs (expected a .png or .pdf with 'ERD' in the name)."
+            exit 1
+          fi
+          echo "ERD file found."
+
+      - name: Check API endpoint plan exists (Markdown or PDF)
+        run: |
+          if ! ls docs/*.md docs/*.pdf 2>/dev/null | grep -qiE "endpoint"; then
+            echo "::error::No API endpoint plan found in /docs (expected a .md or .pdf with 'endpoint' in the name)."
+            exit 1
+          fi
+          echo "Endpoint plan found."
+
+      - name: Check SQL script exists
+        run: |
+          if ! ls docs/*.sql 2>/dev/null; then
+            echo "::error::No .sql file found in /docs."
+            exit 1
+          fi
+          echo "SQL script found."
+
+      - name: Check README exists at repository root
+        run: |
+          if [ ! -f "README.md" ]; then
+            echo "::error::Missing README.md at repository root."
+            exit 1
+          fi
+          echo "README.md found."
+
+      - name: Summary
+        run: echo "All required Part 1 planning documents are present."
