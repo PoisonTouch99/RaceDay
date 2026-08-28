@@ -31,7 +31,8 @@ A GitHub Actions workflow (`.github/workflows/validate-docs.yml`) runs on every 
 
 **Build screenshot:**
 
-_[Screenshot of a successful green Actions](Screenshot 2026-08-28 131413.png)_
+![My Image](Screenshot 2026-08-28 131413.png)
+
 
 ## Video walkthrough
 
