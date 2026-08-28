@@ -1,4 +1,4 @@
-name: Validate Docs Structure
+name: Validate Structure
 
 # Runs on every push and pull request so the /docs folder is checked
 # continuously throughout Part 1, not just at submission time.
@@ -56,4 +56,4 @@ jobs:
           echo "README.md found."
 
       - name: Summary
-        run: echo "All required Part 1 planning documents are present. ✅"
+        run: echo "All required Part 1 planning documents are present."
