@@ -38,4 +38,4 @@ A GitHub Actions workflow (`.github/workflows/validate-docs.yml`) runs on every 
 
 **YouTube (unlisted):** _[Insert your unlisted YouTube link here]_
 
-The video covers: the ERD and the reasoning behind each entity and relationship, the endpoint plan and why each route/role was chosen, and a live run of `RaceDay_Schema.sql` in SSMS.
+The video covers: the ERD and the reasoning behind each entity and relationship, the endpoint plan and why each route/role was chosen, and a live run of `RaceDay.sql` in SSMS.
