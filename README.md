@@ -17,7 +17,7 @@ Here are the roles and what they can do:
 
 ## Database
 
-The schema is built around 7 entities: The complete details are in `docs/RaceDay_ERD.png`, and the SQL in `RaceDay.sql` matches it exactly, with no deviations. `Users` (Organisers and Participants share one table, distinguished by `Role`), `RefreshTokens` (auth), `Events`, `Categories`, `Enrollments` (the many-to-many link between a Participant and a Category), `Results`, and `Payments`.
+The schema is built around 7 entities: The complete details are in `RaceDay ERD.png`, and the SQL in `RaceDay.sql` matches it exactly, with no deviations. `Users` (Organisers and Participants share one table, distinguished by `Role`), `RefreshTokens` (auth), `Events`, `Categories`, `Enrollments` (the many-to-many link between a Participant and a Category), `Results`, and `Payments`.
 
 To run the script: open it in SQL Server Management Studio against a clean instance and execute. It creates `RaceDayDB`, all tables with constraints, and seeds sample data (2 Organisers, 2 Participants, 3 Events, 5 Categories, 4 Enrolments, a Result, and Payments).
 
@@ -27,7 +27,7 @@ The `RaceDayAPI Plan.docx` contains tables that cover the Authentication, User P
 
 ## CI/CD
 
-A GitHub Actions workflow (`.github/workflows/validate-docs.yml`) runs on every push and the folder contains the ERD, endpoint plan, and SQL script, and that this README is present.
+A GitHub Actions workflow, which is located in the `.github/workflows/validate.yml` folder, runs on every push and the folder contains the ERD, endpoint plan, and SQL script, and that this README is present.
 
 **Build screenshot:**
 
