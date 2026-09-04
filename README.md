@@ -17,7 +17,7 @@ Here are the roles and what they can do:
 
 ## Database
 
-The schema is built around 7 entities: `Users` (Organisers and Participants share one table, distinguished by `Role`), `RefreshTokens` (auth), `Events`, `Categories`, `Enrolments` (the many-to-many link between a Participant and a Category), `Results`, and `Payments`. Full detail is in `docs/RaceDay_ERD.png`, and the SQL in `docs/RaceDay_Schema.sql` matches it exactly — no deviations.
+The schema is built around 7 entities: The complete details are in `docs/RaceDay_ERD.png`, and the SQL in `docs/RaceDay_Schema.sql` matches it exactly, with no deviations. `Users` (Organisers and Participants share one table, distinguished by `Role`), `RefreshTokens` (auth), `Events`, `Categories`, `Enrollments` (the many-to-many link between a Participant and a Category), `Results`, and `Payments`.
 
 To run the script: open it in SQL Server Management Studio against a clean instance and execute. It creates `RaceDayDB`, all tables with constraints, and seeds sample data (2 Organisers, 2 Participants, 3 Events, 5 Categories, 4 Enrolments, a Result, and Payments).
 
